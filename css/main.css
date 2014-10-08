@@ -285,7 +285,7 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 300px;
+  height: 250px;
   padding: 15px; }
 
 .textBox {
@@ -323,11 +323,11 @@ html {
   margin-bottom: 5px; }
 
 @media (min-width: 320px) and (max-width: 730px) {
-  .col1-3 {
+  .col1-4 {
     width: 100%; } }
 @media (min-width: 731px) and (max-width: 1024px) {
-  .col1-3 {
-    width: 33.3333%; } }
+  .col1-4 {
+    width: 25%; } }
 @media (min-width: 1025px) {
-  .col1-3 {
-    width: 33.3333%; } }
+  .col1-4 {
+    width: 25%; } }
