@@ -1,0 +1,88 @@
+/*
+   ______               __              
+  / __/ /_______ ______/ /___ _________ 
+ _\ \/ __/ __/ // / __/ __/ // / __/ -_)
+/___/\__/_/  \_,_/\__/\__/\_,_/_/  \__/ 
+
+Sass starter kit v0.1
+Alex Bezuska
+@alexbezuska
+github.com/alexbezuska
+
+*/
+
+// Main row/column system and  basic mediaQuery setup
+@import "structure";
+
+// Starter color kit (optional)
+@import "colors";
+
+//My own oppinionated defaults (optional)
+@import "typography";
+
+[class^='col'] .module {
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  //background: lighten($light, 15%);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 300px;
+  padding: 15px;
+}
+
+.textBox {
+  position: absolute;
+  letter-spacing: .18rem;
+  font-weight: 100;
+  background: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  left: 0px;
+  height: 50px;
+  bottom: 0;
+  padding: 10px 5px;
+  text-align: center;
+  .price {
+    float: right;
+    font-family: "oswald";
+    font-size: 22px;
+  }
+}
+
+.page {
+  margin: 0 auto;
+  @include breakpoint(baby-bear) {
+    width: 100%;
+  }
+
+  @include breakpoint(mama-bear) {
+    width: 1000px;
+  }
+
+  @include breakpoint(papa-bear) {
+    width: 1000px;
+  }
+}
+
+.module {
+  margin-left: $col-gutter-half;
+  margin-right: $col-gutter-half;
+  margin-top: $col-gutter-half;
+  margin-bottom: $col-gutter-half;
+}
+
+.col1-3 {
+  @extend .col;
+  @include breakpoint(baby-bear) {
+    width: 100%;
+  }
+
+  @include breakpoint(mama-bear) {
+    width: 33.3333%;
+  }
+
+  @include breakpoint(papa-bear) {
+    width: 33.3333%;
+  }
+}
