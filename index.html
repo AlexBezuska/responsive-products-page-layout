@@ -120,12 +120,39 @@
 <footer>
 </footer>
 
-<script src="js/main.js"></script>
+<!-- <script src="js/main.js"></script> -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 <script>
-var _gaq=[['_setAccount','UA-00000000-0'],['_trackPageview']];
-(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src='//www.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
+var image = [
+  "http://placekitten.com/g/800/800",
+   "http://placekitten.com/g/700/700",
+   "http://placekitten.com/g/600/600",
+   "http://placekitten.com/g/500/500",
+   "http://placekitten.com/g/400/400",
+   "http://placekitten.com/g/300/300",
+   "http://placekitten.com/g/900/900",
+   "http://placekitten.com/g/950/950"
+];
+function randomPick(array){
+    return Math.floor(Math.random() * array.length);
+}
+function addBackgroundImage(div, image){
+  var rand = randomPick(image);
+    div.css("background-image", "url("+image[rand]+")"); 
+}
+
+
+$('.product.module').each(function(){
+  addBackgroundImage($(this), image);
+});
+
+
+$('.price').each(function(){
+  $(this).text("$24.99");
+});
+
+
 </script>
 </body>
 </html>
