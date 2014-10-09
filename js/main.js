@@ -1,4 +1,4 @@
-var image = [
+var images = [
   "http://placekitten.com/g/800/800",
   "http://placekitten.com/g/700/700",
   "http://placekitten.com/g/600/600",
@@ -9,23 +9,58 @@ var image = [
   "http://placekitten.com/g/950/950"
 ];
 
+var productTypes = [
+  "T-SHIRTS & CLOTHING",
+  "HOME",
+  "HOBBIES",
+  "DRINKWARE",
+  "WALL ART",
+  "ACCESSORIES",
+  "STATIONERY",
+  "CASES & COVERS"
+];
+
+var colors = [
+  "red",
+  "blue",
+  "green",
+  "yellow",
+  "orange",
+  "purple",
+  "white",
+  "black"
+];
+
+var sortBy = [
+  "Price (low to high)",
+  "Price (high to low)",
+  "Popularity"
+];
+
+var boxesPerRow = 4;
+
+$(document).ready(function() {
+  generateRows(".page", 5);
+  fillContent();
+  fillDropdownFromArray("Product Type", "#ddlProductType", productTypes);
+  fillDropdownFromArray("Color", "#ddlColor", colors);
+  fillDropdownFromArray("Sort By", "#ddlSortBy", sortBy);
+});
+
+
 function randomPick(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-function addBackgroundImage(div, image) {
-  var rand = randomPick(image);
-  div.css("background-image", "url(" + image[rand] + ")");
+function addBackgroundimages(div, images) {
+  var rand = randomPick(images);
+  console.log(images[rand]);
+  div.css("background-image", "url(" + images[rand] + ")");
 }
-
-var boxesPerRow = 4;
-
-generateRows(".page", 5);
-fillContent();
 
 function fillContent() {
   $('.product.module').each(function() {
-    addBackgroundImage($(this), image);
+    addBackgroundimages($(this), images);
   });
 
 
@@ -45,5 +80,12 @@ function generateRows(location, quantity) {
   for (var i = 0; i < quantity; i++) {
     $(location).append("<div class='row' data-row='" + i + "'></div>");
     generateBoxes("[data-row=" + i + "]", boxesPerRow);
+  }
+}
+
+function fillDropdownFromArray(listName, dropdown, array) {
+  $(dropdown).append("<option value=" + listName + ">" + listName + "</option>");
+  for (var i = 0; i < array.length; i++) {
+    $(dropdown).append("<option value=" + array[i] + ">" + array[i] + "</option>");
   }
 }
